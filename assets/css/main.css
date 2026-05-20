@@ -83,6 +83,20 @@ body {
   align-self: center;
 }
 
+.splash-firstname {
+  font-family: 'Playfair Display', var(--serif);
+  font-size: clamp(25px, 4.2vw, 61px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: -42px;
+  align-self: flex-start;
+  position: relative;
+  left: 10%;
+}
+
 .splash-name {
   font-family: 'Playfair Display', var(--serif);
   font-weight: 400;
@@ -808,38 +822,103 @@ footer p {
 .footer-links { display: none; }
 
 /* ── Responsive ── */
-@media (max-width: 860px) {
-  nav, .hero, section, footer {
+@media (max-width: 768px) {
+
+  /* Nav */
+  nav {
+    padding: 16px 24px;
+  }
+
+  .nav-name-main { font-size: 20px; }
+  .nav-name-sub { display: none; }
+  .nav-links { gap: 16px; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.08em; }
+
+  /* Splash */
+  .splash-firstname {
+    font-size: clamp(20px, 7vw, 36px);
+    left: 0;
+    margin-bottom: -24px;
+  }
+
+  .splash-name {
+    font-size: clamp(52px, 16vw, 96px);
+  }
+
+  .splash-role {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
+
+  .splash-credit {
+    font-size: 10px;
+    bottom: 24px;
+    right: 20px;
+  }
+
+  /* Splash - focus on right side of photo where face is */
+  .splash-img {
+    background-position: right center;
+  }
+    padding: 64px 24px;
+  }
+
+  .section-header {
+    padding-top: 20px;
+    margin-bottom: 36px;
+  }
+
+  /* Work grid — stack on mobile */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Spotify iframe */
+  .about-text iframe {
+    height: 380px;
+  }
+
+  /* Detail rows */
+  .detail-row {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .detail-val { font-size: 15px; }
+
+  /* Photo viewer */
+  .photo-viewer {
+    height: calc(100vh - 60px);
+    padding-top: 60px;
+  }
+
+  .thumb { height: 60px; }
+
+  .slide-prev { left: 4px; }
+  .slide-next { right: 4px; }
+
+  /* Contact page */
+  .page-content section {
+    padding-top: 100px;
     padding-left: 24px;
     padding-right: 24px;
   }
 
-  nav { padding-top: 20px; padding-bottom: 20px; }
+  .contact-heading {
+    white-space: normal;
+    font-size: clamp(24px, 6vw, 36px);
+  }
 
-  .nav-links { gap: 20px; }
-
-  .hero-content,
-  .about-grid,
-  .contact-grid {
+  .cform-row {
     grid-template-columns: 1fr;
-    gap: 48px;
   }
 
-  .listen-grid { grid-template-columns: 1fr; }
-
-  .photo-grid {
-    grid-template-columns: 1fr 1fr;
+  .contact-form-full textarea {
+    height: 140px;
   }
 
-  .photo-item:nth-child(1),
-  .photo-item:nth-child(2),
-  .photo-item:nth-child(3),
-  .photo-item:nth-child(4),
-  .photo-item:nth-child(5) {
-    grid-column: auto;
-    grid-row: auto;
-    aspect-ratio: 4/3;
+  /* Footer */
+  footer {
+    padding: 24px;
   }
-
-  .form-row { grid-template-columns: 1fr; }
 }
