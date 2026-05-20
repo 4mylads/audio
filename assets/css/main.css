@@ -72,20 +72,8 @@ body {
 }
 
 .splash-firstname {
-  font-family: 'Bodoni Moda', serif;
-  font-size: clamp(22px, 3.4vw, 48px);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: -28px;
-  align-self: center;
-}
-
-.splash-firstname {
   font-family: 'Playfair Display', var(--serif);
-  font-size: clamp(25px, 4.2vw, 61px);
+  font-size: clamp(20px, 3.4vw, 49px);
   font-weight: 400;
   font-style: italic;
   letter-spacing: 0.18em;
@@ -598,8 +586,8 @@ nav.nav-dark .nav-links a:hover { color: rgba(255,255,255,1); }
 .photo-viewer {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 80px);
-  padding: 80px 0 0;
+  height: 100vh;
+  padding: 96px 0 0;
   overflow: hidden;
   background: #111010;
 }
@@ -836,8 +824,8 @@ footer p {
 
   /* Splash */
   .splash-firstname {
-    font-size: clamp(20px, 7vw, 36px);
-    left: 0;
+    font-size: clamp(16px, 5.5vw, 39px);
+    left: 10%;
     margin-bottom: -24px;
   }
 
@@ -860,6 +848,9 @@ footer p {
   .splash-img {
     background-position: right center;
   }
+
+  /* Sections */
+  section {
     padding: 64px 24px;
   }
 
