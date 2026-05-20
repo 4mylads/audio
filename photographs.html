@@ -1,0 +1,78 @@
+---
+layout: default
+title: Photographs — Matthew Farrell
+---
+
+<style>
+  body { background: #111010; overflow: hidden; }
+  nav { background: var(--white); mix-blend-mode: normal; padding-right: 56px; }
+</style>
+
+<nav>
+  <a href="/" class="nav-name"><span class="nav-name-main">Matthew Farrell</span><span class="nav-name-sub">Mixer &middot; Engineer &middot; Producer</span></a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#playlist">Playlist</a></li>
+    <li><a href="/photographs.html">Photographs</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="photo-viewer">
+
+  <div class="photo-main">
+    <div class="slide active"><img src="/assets/images/website1.jpg" alt="Photograph 1"></div>
+    <div class="slide"><img src="/assets/images/website2.jpg" alt="Photograph 2"></div>
+    <div class="slide"><img src="/assets/images/website3.jpg" alt="Photograph 3"></div>
+    <div class="slide"><img src="/assets/images/website4.jpg" alt="Photograph 4"></div>
+    <div class="slide"><img src="/assets/images/website5.jpg" alt="Photograph 5"></div>
+    <div class="slide"><img src="/assets/images/website6.jpg" alt="Photograph 6"></div>
+    <div class="slide"><img src="/assets/images/website7.jpg" alt="Photograph 7"></div>
+    <div class="slide"><img src="/assets/images/website8.jpg" alt="Photograph 8"></div>
+    <div class="slide"><img src="/assets/images/website9.jpg" alt="Photograph 9"></div>
+    <div class="slide"><img src="/assets/images/website10.jpg" alt="Photograph 10"></div>
+    <div class="slide"><img src="/assets/images/website11.jpg" alt="Photograph 11"></div>
+    <button class="slide-btn slide-prev" id="slidePrev">&#8592;</button>
+    <button class="slide-btn slide-next" id="slideNext">&#8594;</button>
+  </div>
+
+  <div class="photo-thumbs" id="thumbStrip">
+    <img src="/assets/images/website1.jpg"  class="thumb active" data-index="0" alt="1">
+    <img src="/assets/images/website2.jpg"  class="thumb" data-index="1" alt="2">
+    <img src="/assets/images/website3.jpg"  class="thumb" data-index="2" alt="3">
+    <img src="/assets/images/website4.jpg"  class="thumb" data-index="3" alt="4">
+    <img src="/assets/images/website5.jpg"  class="thumb" data-index="4" alt="5">
+    <img src="/assets/images/website6.jpg"  class="thumb" data-index="5" alt="6">
+    <img src="/assets/images/website7.jpg"  class="thumb" data-index="6" alt="7">
+    <img src="/assets/images/website8.jpg"  class="thumb" data-index="7" alt="8">
+    <img src="/assets/images/website9.jpg"  class="thumb" data-index="8" alt="9">
+    <img src="/assets/images/website10.jpg" class="thumb" data-index="9" alt="10">
+    <img src="/assets/images/website11.jpg" class="thumb" data-index="10" alt="11">
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const thumbs = document.querySelectorAll('.thumb');
+  let current = 0;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    thumbs[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    thumbs[current].classList.add('active');
+    thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  document.getElementById('slideNext').addEventListener('click', () => goTo(current + 1));
+  document.getElementById('slidePrev').addEventListener('click', () => goTo(current - 1));
+
+  thumbs.forEach(t => t.addEventListener('click', () => goTo(parseInt(t.dataset.index))));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+  });
+</script>
